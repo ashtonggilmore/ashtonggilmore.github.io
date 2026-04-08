@@ -691,3 +691,53 @@ footer a:hover { text-decoration: underline; }
   margin-bottom: 4rem;
 }
 .pdf-embed--tall { height: 900px; }
+
+/* PDF accordion
+   Usage:
+   <details class="pdf-accordion">
+     <summary class="pdf-accordion__toggle">Title</summary>
+     <iframe class="pdf-accordion__embed" src="file.pdf"></iframe>
+   </details> */
+.pdf-accordion {
+  border: 1px solid var(--umber-pale);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.4rem;
+  overflow: hidden;
+  background: var(--warm-white);
+}
+.pdf-accordion[open] { box-shadow: var(--shadow-md); }
+.pdf-accordion__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--umber-deep);
+  list-style: none;
+  user-select: none;
+  background: var(--warm-white);
+  transition: background 0.15s;
+}
+.pdf-accordion__toggle::-webkit-details-marker { display: none; }
+.pdf-accordion__toggle:hover { background: var(--umber-pale); }
+.pdf-accordion__toggle::after {
+  content: '▸';
+  font-size: 0.85rem;
+  color: var(--umber-light);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.pdf-accordion[open] .pdf-accordion__toggle {
+  background: var(--umber-pale);
+  border-bottom: 1px solid rgba(232,201,160,0.6);
+}
+.pdf-accordion[open] .pdf-accordion__toggle::after { transform: rotate(90deg); }
+.pdf-accordion__embed {
+  display: block;
+  width: 100%;
+  height: 820px;
+  border: none;
+}
