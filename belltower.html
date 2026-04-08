@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell Tower Kit Card — Ashton Gilmore</title>
+  <style>
+    /* ── Design tokens (mirrors index.html) ── */
+    :root {
+      --umber-deep:   #4A200A;
+      --umber:        #7B3B14;
+      --umber-mid:    #9C4E22;
+      --umber-light:  #C07642;
+      --umber-pale:   #E8C9A0;
+      --cream:        #FAF4EC;
+      --warm-white:   #FDF8F2;
+      --blue:         #3A6FA0;
+      --blue-bright:  #4D88BF;
+      --blue-pale:    #B8D4EA;
+      --blue-muted:   #6A9EC2;
+      --text-dark:    #2A160A;
+      --text-mid:     #4A2E18;
+      --text-light:   #7A5A40;
+      --shadow-sm:    0 2px 6px rgba(74,32,10,0.10);
+      --shadow-md:    0 4px 18px rgba(74,32,10,0.14);
+      --shadow-lg:    0 8px 32px rgba(74,32,10,0.18);
+      --radius-sm:    5px;
+      --radius-md:    8px;
+      --radius-lg:    12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ── Header / nav ── */
+    header {
+      background: var(--umber-deep);
+      padding: 2rem 2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(58,111,160,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .header-wordmark {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .header-wordmark span { font-weight: 700; color: var(--umber-pale); }
+    .back-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-pale);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--cream); }
+    .back-link::before { content: '←'; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--umber);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(58,111,160,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue-pale);
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 1.4rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      background: rgba(184,212,234,0.18);
+      color: var(--blue-pale);
+      border: 1px solid rgba(184,212,234,0.25);
+    }
+    .tag.umber {
+      background: rgba(232,201,160,0.15);
+      color: var(--umber-pale);
+      border-color: rgba(232,201,160,0.25);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--umber-pale);
+      line-height: 1.75;
+      opacity: 0.9;
+    }
+
+    /* ── Hero image strip ── */
+    .hero-image {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 0;
+    }
+    .hero-image img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      display: block;
+    }
+
+    /* ── Main content ── */
+    .content-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* ── Section label + title ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--umber-light);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--umber-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Two-column intro ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 680px) {
+      .intro-grid { grid-template-columns: 1fr; }
+    }
+    .intro-text p {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .intro-text p:last-child { margin-bottom: 0; }
+
+    /* ── Spec table ── */
+    .spec-block {
+      background: var(--warm-white);
+      border: 1px solid var(--umber-pale);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .spec-block table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .spec-block th, .spec-block td {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-size: 0.88rem;
+      vertical-align: top;
+    }
+    .spec-block th {
+      background: var(--umber-pale);
+      color: var(--umber-deep);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+    .spec-block td {
+      color: var(--text-mid);
+      border-top: 1px solid rgba(232,201,160,0.45);
+    }
+    .spec-block tr:first-child td { border-top: none; }
+    .spec-block td:first-child {
+      font-weight: 600;
+      color: var(--text-dark);
+      width: 42%;
+    }
+
+    /* ── Process steps ── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 4rem;
+    }
+    .process-card {
+      background: var(--warm-white);
+      border: 1px solid var(--umber-pale);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .process-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--umber-pale);
+      font-variant-numeric: tabular-nums;
+    }
+    .process-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--umber-deep);
+    }
+    .process-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ── Image gallery ── */
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 520px) {
+      .image-grid { grid-template-columns: 1fr; }
+    }
+    .image-grid .full-width {
+      grid-column: 1 / -1;
+    }
+    .img-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--umber-pale);
+    }
+    .img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-card.tall {
+      aspect-ratio: 3/4;
+    }
+    .img-card.wide {
+      aspect-ratio: 16/9;
+    }
+    .img-placeholder {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--umber-pale) 0%, var(--umber-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(74,32,10,0.4);
+    }
+
+    /* ── Highlight callout ── */
+    .callout {
+      background: var(--warm-white);
+      border-left: 4px solid var(--blue-bright);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .callout p {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .callout strong { color: var(--umber-deep); }
+
+    /* ── Section divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--umber-pale);
+      margin: 0 0 3.5rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--umber-deep);
+      color: var(--umber-pale);
+      text-align: center;
+      padding: 1.6rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+    footer a { color: var(--blue-pale); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="header-wordmark"><span>Ashton</span> Gilmore</a>
+    <a href="index.html" class="back-link">Back to portfolio</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Featured Project</p>
+    <h1>Bell Tower Kit Card</h1>
+    <div class="hero-tags">
+      <span class="tag">Laser Cut</span>
+      <span class="tag">Autodesk Fusion</span>
+      <span class="tag">CO₂ Laser</span>
+      <span class="tag umber">Affinity Designer</span>
+      <span class="tag umber">Pen Plotter</span>
+      <span class="tag umber">Packaging Design</span>
+    </div>
+    <p class="hero-desc">
+      A flat-pack miniature bell tower cut from MDF core sheet, sold as a self-contained kit card — with hand-plotted packaging and a custom instruction booklet designed from scratch.
+    </p>
+  </div>
+</section>
+
+<!-- ── Hero image ── -->
+<div class="hero-image">
+  <img src="assets/DSC09099.png" alt="Three bell tower models with shallow depth-of-field">
+</div>
+
+<!-- ── Main content ── -->
+<main class="content-wrap">
+
+  <!-- Overview + Specs -->
+  <div class="intro-grid">
+    <div class="intro-text">
+      <p class="section-label">Overview</p>
+      <p>
+        The Bell Tower Kit Card is a punch-out style miniature model designed as a self-contained product — everything the buyer needs ships on a single sheet of laser-cut MDF. The design was created collaboratively: my friend modelled the interlocking geometry in <strong>Autodesk Fusion</strong>, engineering the tab-and-slot joinery so the tower assembles without glue or tools.
+      </p>
+      <p>
+        My role covered the end-to-end production side: prepping cut files for the laser, producing the instruction booklet, and building the packaging from scratch using unconventional materials and processes.
+      </p>
+    </div>
+
+    <div class="spec-block">
+      <table>
+        <thead>
+          <tr><th>Specification</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Material</td><td>Truflat MDF core sheet — consistent density, minimal surface variation, ideal for fine laser detail</td></tr>
+          <tr><td>Cutting method</td><td>CO₂ laser cutter</td></tr>
+          <tr><td>3D design</td><td>Autodesk Fusion (modelled by collaborator)</td></tr>
+          <tr><td>Instructions</td><td>Affinity Designer &amp; Affinity Publisher</td></tr>
+          <tr><td>Packaging substrate</td><td>Floor protection board (recycled/repurposed)</td></tr>
+          <tr><td>Packaging artwork</td><td>Pen plotter + fineline Sharpie</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <hr class="divider">
+  <p class="section-label">Process</p>
+  <h2 class="section-title">How it came together</h2>
+
+  <div class="process-grid">
+    <div class="process-card">
+      <span class="process-num">01</span>
+      <h3>3D Modeling in Fusion</h3>
+      <p>My collaborator built the tower geometry in Autodesk Fusion, engineering tight tab-and-slot joinery that holds under finger pressure with no adhesive needed. Each part was laid flat and nested for efficient sheet use.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">02</span>
+      <h3>Material Selection</h3>
+      <p>Truflat MDF core sheet was chosen for its uniform density and flat surface. It's fast to cut, consistent, and has several choices of faux wood pattern to choose from.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">03</span>
+      <h3>CO₂ Laser Cutting</h3>
+      <p>The manufacturing extension on Fusion allowed for panelizing the assembly and exporting it in tightly packed panels for minimum waste.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">04</span>
+      <h3>Instruction Booklet</h3>
+      <p>I designed the step-by-step assembly guide in <strong>Affinity Designer</strong> and laid it out for print in <strong>Affinity Publisher</strong>. The guide uses clear numbered steps with part-callout illustrations to walk the builder through assembly without prior experience.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">05</span>
+      <h3>Packaging Material</h3>
+      <p>We had some fun with the packaging material. By using floor protection board, we can get a very cheap material in large rolls. Then a large vinyl cutter can cut the outlines and score fold lines for quick assembly.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">06</span>
+      <h3>Pen Plotter Artwork</h3>
+      <p>Artwork was applied to the packaging using a pen plotter loaded with a fineline Sharpie. This gave crisp, repeatable linework directly on the board surface with no ink bleed — a process that keeps the production tactile and deliberately handcraft in character.</p>
+    </div>
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <p>
+      <strong>Why a pen plotter for packaging?</strong> The style of packaging was kept visually consistent with our 'crafty' aesthetic and we certainly couldn't afford proper die cut packaing for such a small product run.
+    </p>
+  </div>
+
+  <!-- Image gallery -->
+  <hr class="divider">
+  <p class="section-label">Gallery</p>
+  <h2 class="section-title">Product photography</h2>
+
+  <div class="image-grid">
+    <div class="img-card wide full-width">
+      <img src="assets/1x1bellTowerProductMain.jpg" alt="Bell Tower kit card product shot">
+    </div>
+    <div class="img-card wide">
+      <img src="assets/BellTowerPackaging.jpg" alt="Bell Tower packaging with pen-plotted artwork">
+    </div>
+    <div class="img-card wide">
+      <img src="assets/DSC09099.png" alt="Three assembled bell towers, depth of field shot">
+    </div>
+    <div class="'img-card wide">
+        <img src="assets/1775626241001-45ad91c6-52fc-463b-80c3-23d6bbefecba_1.png">
+    </div>
+    <div class="'img-card wide">
+        <img src="assets/1775626241001-45ad91c6-52fc-463b-80c3-23d6bbefecba_2.png">
+    </div>
+    <div class="'img-card wide">
+        <img src="assets/1775626241001-45ad91c6-52fc-463b-80c3-23d6bbefecba_3.png">
+    </div>
+  </div>
+
+  <!-- Roles -->
+  <hr class="divider">
+  <p class="section-label">Contributions</p>
+  <h2 class="section-title">Who did what</h2>
+
+  <div class="intro-grid">
+    <div class="process-card">
+      <h3>Collaborator</h3>
+      <p>3D geometry and joinery design in Autodesk Fusion. Parametric part modelling, tab-and-slot tolerancing, and flat-pattern layout for laser nesting.</p>
+    </div>
+    <div class="process-card">
+      <h3>Ashton Gilmore</h3>
+      <p>Cut file preparation and laser production. Instruction booklet design (Affinity Designer + Publisher). Packaging construction, pen plotter artwork, and all product photography.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>© 2026 Ashton Gilmore &nbsp;·&nbsp; <a href="mailto:hello@example.com">hello@example.com</a></p>
+</footer>
+
+</body>
+</html>
