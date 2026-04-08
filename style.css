@@ -510,6 +510,30 @@ footer a:hover { text-decoration: underline; }
   display: block;
 }
 
+/* Hero logo banner — umber gradient field with centered SVG logo */
+.hero-logo-banner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 0;
+}
+.hero-logo-banner .logo-field {
+  width: 100%;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--umber-pale) 0%, var(--umber-light) 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-logo-banner .logo-field img {
+  width: 38%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 /* Main content */
 .content-wrap {
   max-width: 1100px;
