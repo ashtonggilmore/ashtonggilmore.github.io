@@ -175,7 +175,7 @@ footer a:hover { text-decoration: underline; }
   gap: 6px;
   margin-bottom: 1rem;
 }
-.panel-tags .tag {
+.panel-tags .machines {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -185,7 +185,7 @@ footer a:hover { text-decoration: underline; }
   background: var(--blue-pale);
   color: var(--blue);
 }
-.panel-tags .tag.umber {
+.panel-tags .software {
   background: var(--umber-pale);
   color: var(--umber);
 }
@@ -472,7 +472,7 @@ footer a:hover { text-decoration: underline; }
   gap: 6px;
   margin-bottom: 1.4rem;
 }
-.hero-tags .tag {
+.hero-tags .machines {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -483,7 +483,7 @@ footer a:hover { text-decoration: underline; }
   color: var(--blue-pale);
   border: 1px solid rgba(184,212,234,0.25);
 }
-.hero-tags .tag.umber {
+.hero-tags .software {
   background: rgba(232,201,160,0.15);
   color: var(--umber-pale);
   border-color: rgba(232,201,160,0.25);
