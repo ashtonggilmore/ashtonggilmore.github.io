@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caesar Cipher Wheel — Ashton Gilmore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-project">
+
+<!-- ── Header ── -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="header-wordmark"><span>Ashton</span> Gilmore</a>
+    <a href="index.html" class="back-link">Back to portfolio</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Featured Project</p>
+    <h1>Caesar Cipher Wheel Activity</h1>
+    <div class="hero-tags">
+      <span class="tag">Graphic Design</span>
+      <span class="tag">CAD</span>
+      <span class="tag">Affinity Designer</span>
+      <span class="tag umber">3D Print</span>
+      <span class="tag umber">Quick Guide</span>
+      <span class="tag umber">Education</span>
+    </div>
+    <p class="hero-desc">
+      A hands-on cryptography activity for young students — a 3D-printed Caesar cipher wheel paired with a custom quick-reference guide, designed to make encoding and decoding approachable and fun.
+    </p>
+  </div>
+</section>
+
+<!-- ── Hero image ── -->
+<div class="hero-image">
+  <img src="assets/cipher/DSC09151.jpg" alt="Caesar cipher wheel activity">
+</div>
+
+<!-- ── Main content ── -->
+<main class="content-wrap">
+
+  <!-- Overview + Specs -->
+  <div class="intro-grid">
+    <div class="intro-text">
+      <p class="section-label">Overview</p>
+      <p>
+        The Caesar Cipher Wheel is an educational activity designed to introduce young students to the concept of cryptography through a tactile, physical tool. The two-disc wheel lets students rotate the inner ring to set a shift value and then encode or decode messages letter by letter.
+      </p>
+      <p>
+        The project covers the full production pipeline: 3D modelling the wheel in <strong>Fusion 360</strong>, printing and testing multiple tolerance iterations, and designing a companion quick-reference guide in <strong>Affinity Designer</strong> that walks students through their first cipher without an adult's help.
+      </p>
+    </div>
+
+    <div class="spec-block">
+      <table>
+        <thead>
+          <tr><th>Specification</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>3D design</td><td>Autodesk Fusion 360</td></tr>
+          <tr><td>Print material</td><td>PLA — two-colour assembly (outer ring + inner disc)</td></tr>
+          <tr><td>Tolerancing</td><td>Slip-fit snap joint, iterated across three test prints</td></tr>
+          <tr><td>Guide design</td><td>Affinity Designer</td></tr>
+          <tr><td>Guide format</td><td>Single A5 sheet, double-sided, folds to A6 card</td></tr>
+          <tr><td>Target audience</td><td>Students aged 8–12</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <hr class="divider">
+  <p class="section-label">Process</p>
+  <h2 class="section-title">How it came together</h2>
+
+  <div class="process-grid">
+    <div class="process-card">
+      <span class="process-num">01</span>
+      <h3>Concept &amp; Sizing</h3>
+      <p>The wheel needed to be large enough for young hands to grip and rotate comfortably without being bulky on a desk. A 100 mm outer diameter was settled on after paper prototyping the letter spacing around the circumference.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">02</span>
+      <h3>CAD in Fusion 360</h3>
+      <p>The outer ring and inner disc were modelled as separate bodies. Parameters drove the letter pitch so the 26-character alphabet could be redistributed cleanly if the diameter changed. A snap-fit axle kept assembly tool-free.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">03</span>
+      <h3>Print Iteration</h3>
+      <p>Three iterations dialled in the slip-fit clearance between the disc and ring. Too tight and students couldn't rotate it; too loose and letters drifted mid-decode. Final clearance: 0.3 mm per side.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">04</span>
+      <h3>Quick-Reference Guide</h3>
+      <p>The companion guide was laid out in <strong>Affinity Designer</strong> as a folded A5 card. One side explains what a Caesar cipher is; the other walks through encoding and decoding a sample message step by step, with space for the student to write their own.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">05</span>
+      <h3>Visual Design</h3>
+      <p>The guide uses a clean, high-contrast layout with large type and numbered steps. Colour coding ties the wheel's two rings to the corresponding "plain" and "cipher" columns in the written examples, reducing cognitive load.</p>
+    </div>
+    <div class="process-card">
+      <span class="process-num">06</span>
+      <h3>Student Testing</h3>
+      <p>A small group of students ran through the activity with the guide and no adult prompting. Their feedback pointed to one ambiguous step in the decoding instructions — corrected in the final print run.</p>
+    </div>
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <p>
+      <strong>Why 3D print instead of laser cut?</strong> The rotating joint between the two discs is trivial to produce with a snap-fit print but would require a separate fastener on a flat laser-cut version — adding assembly steps and cost for a classroom-quantity item.
+    </p>
+  </div>
+
+  <!-- Image gallery -->
+  <hr class="divider">
+  <p class="section-label">Gallery</p>
+  <h2 class="section-title">Product photography</h2>
+
+  <div class="image-grid">
+    <div class="img-card wide full-width">
+      <img src="assets/cipher/DSC09151.jpg" alt="Caesar cipher wheel, top-down view">
+    </div>
+    <iframe class="pdf-embed pdf-embed--tall full-width" src="assets/cipher/cipherWheelInstructions.pdf"></iframe>
+  </div>
+
+  <!-- Contributions -->
+  <hr class="divider">
+  <p class="section-label">Contributions</p>
+  <h2 class="section-title">Who did what</h2>
+
+  <div class="intro-grid">
+    <div class="process-card">
+      <h3>Ashton Gilmore</h3>
+      <p>Full project — CAD modelling, print iteration and tolerance testing, quick-reference guide design (Affinity Designer), visual layout, and student usability review.</p>
+    </div>
+    <div class="process-card">
+      <h3>Students</h3>
+      <p>Usability feedback during a live classroom session, which informed the final revision to the decoding step in the printed guide.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>&copy; 2026 Ashton Gilmore &nbsp;&middot;&nbsp; <a href="mailto:ashtonggilmore@gmail.com">ashtonggilmore@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
