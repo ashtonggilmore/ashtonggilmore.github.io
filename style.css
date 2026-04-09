@@ -188,19 +188,16 @@ footer a:hover { text-decoration: underline; }
   gap: 6px;
   margin-bottom: 1rem;
 }
-.panel-tags .machines {
+.panel-tags .machines,
+.panel-tags .software {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: var(--radius-sm);
-  background: var(--blue-pale);
-  color: var(--blue);
-}
-.panel-tags .software {
   background: var(--umber-pale);
-  color: var(--umber);
+  color: var(--umber-deep);
 }
 .panel-info p {
   color: var(--text-mid);
@@ -485,21 +482,17 @@ footer a:hover { text-decoration: underline; }
   gap: 6px;
   margin-bottom: 1.4rem;
 }
-.hero-tags .machines {
+.hero-tags .machines,
+.hero-tags .software {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: var(--radius-sm);
-  background: rgba(173,193,120,0.20);
-  color: var(--blue-pale);
-  border: 1px solid rgba(173,193,120,0.30);
-}
-.hero-tags .software {
   background: rgba(221,229,182,0.18);
   color: var(--umber-pale);
-  border-color: rgba(221,229,182,0.28);
+  border: 1px solid rgba(221,229,182,0.28);
 }
 .hero-desc {
   font-size: 1.05rem;
