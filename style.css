@@ -71,8 +71,16 @@ footer a:hover { text-decoration: underline; }
    ============================================================ */
 
 /* Header */
-.page-index header { padding: 3rem 2rem 2.5rem; text-align: center; }
-.page-index .header-inner { position: relative; z-index: 1; }
+.page-index header { padding: 3rem 2rem 2.5rem; }
+.page-index .header-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.page-index .header-title { text-align: center; flex: 1; }
 .page-index header h1 {
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 300;
@@ -88,6 +96,26 @@ footer a:hover { text-decoration: underline; }
   color: var(--blue-pale);
   text-transform: uppercase;
   font-weight: 400;
+}
+.resume-btn {
+  flex-shrink: 0;
+  padding: 0.55rem 1.3rem;
+  border: 2px solid var(--umber-pale);
+  border-radius: var(--radius-sm);
+  color: var(--umber-pale);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  align-self: center;
+  position: absolute;
+  right: 0;
+}
+.resume-btn:hover {
+  background: var(--umber-pale);
+  color: var(--umber-deep);
 }
 
 /* Featured nav tabs — sits below the project card */
