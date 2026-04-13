@@ -76,19 +76,27 @@
 
 <!-- ── Featured Project Tabs ── -->
 <nav class="featured-nav" role="tablist" aria-label="Featured projects">
-  <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="0">Bell Tower Kit Card</button>
-  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="1">Cipher Activity</button>
-  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="2">3D Printing Curriculums</button>
+  <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="0" data-tags="cad-cam design">Bell Tower Kit Card</button>
+  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="1" data-tags="cad-cam design">Cipher Activity</button>
+  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="2" data-tags="cad-cam design">3D Printing Curriculums</button>
 </nav>
 
 <!-- ── Small Project Gallery ── -->
 <section class="gallery-section">
   <p class="section-heading">Assorted Work</p>
-  <h2 class="section-title">Quick Projects</h2>
+  <div class="gallery-section-header">
+    <h2 class="section-title">Quick Projects</h2>
+    <nav class="header-filters" aria-label="Filter projects by category">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="cad-cam">CAD / CAM</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="code">Code</button>
+    </nav>
+  </div>
 
   <div class="gallery-grid">
 
-    <div class="gallery-card" data-title="Router Organization" data-category="CAD / Fabrication" data-excerpt="A jointed stand for holding ISO30 tapers and the holding bearing for tool changeouts.">
+    <div class="gallery-card" data-title="Router Organization" data-category="CAD / Fabrication" data-excerpt="A jointed stand for holding ISO30 tapers and the holding bearing for tool changeouts." data-tags="cad-cam">
       <div class="card-thumb">
         <img src="assets/routerOrganizer/IMG_20260205_200927.jpg" alt="Router Organization">
       </div>
@@ -99,7 +107,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Car Badges" data-category="CAD / Fabrication" data-excerpt="Plasma cut stainless steel and brass badges for my 1996 Miata project.">
+    <div class="gallery-card" data-title="Car Badges" data-category="CAD / Fabrication" data-excerpt="Plasma cut stainless steel and brass badges for my 1996 Miata project." data-tags="cad-cam">
       <div class="card-thumb">
         <img src="assets/miatabadges/flameBadge.jpg" alt="Car Badges">
       </div>
@@ -110,7 +118,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Glue Stick Holder" data-category="CAD / Fabrication" data-excerpt="3D printed mid-century styled glue stick holder for 3D printing organization.">
+    <div class="gallery-card" data-title="Glue Stick Holder" data-category="CAD / Fabrication" data-excerpt="3D printed mid-century styled glue stick holder for 3D printing organization." data-tags="cad-cam">
       <div class="card-thumb">
         <img src="assets/glueHolder/IMG_20250124_175549.jpg" alt="Gluestick Stand">
       </div>
@@ -121,7 +129,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Zlant Keyboard" data-category="CAD / Fabrication" data-excerpt="Laser cut acrylic case for Zlant keyboard.">
+    <div class="gallery-card" data-title="Zlant Keyboard" data-category="CAD / Fabrication" data-excerpt="Laser cut acrylic case for Zlant keyboard." data-tags="cad-cam">
       <div class="card-thumb">
         <img src="assets/zlant/zlantKeyboard.jpg" alt="Zlant">
       </div>
@@ -132,7 +140,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Stone & Strata" data-category="Affinity Vector Art" data-excerpt="A brand styling practice session.">
+    <div class="gallery-card" data-title="Stone & Strata" data-category="Affinity Vector Art" data-excerpt="A brand styling practice session." data-tags="design">
       <div class="card-thumb contain">
         <img src="assets/stone_strata_logo/stone_and_strata_light.png" alt="SaS Logo">
       </div>
@@ -143,7 +151,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="MiataCreations Logo" data-category="Affinity Vector Art" data-excerpt="More logo practice.">
+    <div class="gallery-card" data-title="MiataCreations Logo" data-category="Affinity Vector Art" data-excerpt="More logo practice." data-tags="design">
       <div class="card-thumb contain">
         <img src="assets/miata_creations/miataCreationsLogoV1.png" alt="MiataCreations Logo">
       </div>
@@ -154,7 +162,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Cygnus Keyboard: Handwired" data-category="Soldering" data-excerpt="Handwiring a 3D printed keyboard">
+    <div class="gallery-card" data-title="Cygnus Keyboard: Handwired" data-category="Soldering" data-excerpt="Handwiring a 3D printed keyboard" data-tags="cad-cam">
       <div class="card-thumb contain">
         <img src="assets/cygnus/handwiredKeyboard.jpg" alt="cygnusback">
       </div>
@@ -165,7 +173,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Inventory Management" data-category="3D Printing / Organization" data-excerpt="Inventory Sorting from an existing solution. Modified for metal pins, thickened corners, and increased durability.">
+    <div class="gallery-card" data-title="Inventory Management" data-category="3D Printing / Organization" data-excerpt="Inventory Sorting from an existing solution. Modified for metal pins, thickened corners, and increased durability." data-tags="cad-cam">
       <div class="card-thumb contain">
         <img src="assets/inventoryManagement/inventoryInside.jpg" alt="inventoryInside">
       </div>
@@ -176,7 +184,7 @@
       </div>
     </div>
 
-    <div class="gallery-card" data-title="Computer Work Table" data-category="Woodworking" data-excerpt="Constructed of 2x4s for budget reasons, it provides a place to hold 6 CAD computer workstations.">
+    <div class="gallery-card" data-title="Computer Work Table" data-category="Woodworking" data-excerpt="Constructed of 2x4s for budget reasons, it provides a place to hold 6 CAD computer workstations." data-tags="cad-cam">
       <div class="card-thumb contain">
         <img src="assets/computerTable/computerTable.jpg" alt="inventoryInside">
       </div>
@@ -187,6 +195,7 @@
       </div>
     </div>
 
+    <div class="gallery-empty" id="gallery-empty">No projects in this category yet.</div>
   </div>
 </section>
 
@@ -209,35 +218,82 @@
 </footer>
 
 <script>
-  // ── Tab switching ──
-  const tabBtns   = document.querySelectorAll('.tab-btn');
-  const panels    = document.querySelectorAll('.project-panel');
+  const tabBtns        = document.querySelectorAll('.tab-btn');
+  const panels         = document.querySelectorAll('.project-panel');
+  const galleryCards   = document.querySelectorAll('.gallery-card');
+  const featuredPanels = document.querySelector('.featured-panels');
+  const featuredNav    = document.querySelector('.featured-nav');
+  const galleryEmpty   = document.getElementById('gallery-empty');
 
+  // ── Filter ──
+  function applyFilter(filter) {
+    // Gallery cards
+    let visibleCards = 0;
+    galleryCards.forEach(card => {
+      const tags = (card.dataset.tags || '').split(' ');
+      const show = filter === 'all' || tags.includes(filter);
+      card.classList.toggle('tag-hidden', !show);
+      if (show) visibleCards++;
+    });
+    galleryEmpty.classList.toggle('visible', visibleCards === 0);
+
+    // Featured tab buttons
+    tabBtns.forEach(btn => {
+      const tags = (btn.dataset.tags || '').split(' ');
+      const show = filter === 'all' || tags.includes(filter);
+      btn.classList.toggle('tag-hidden', !show);
+    });
+
+    // If active tab is now hidden, switch to first visible tab
+    const stillActive = document.querySelector('.tab-btn.active:not(.tag-hidden)');
+    if (!stillActive) {
+      const firstVisible = document.querySelector('.tab-btn:not(.tag-hidden)');
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.remove('active'));
+      if (firstVisible) {
+        firstVisible.classList.add('active');
+        firstVisible.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + firstVisible.dataset.tab).classList.add('active');
+      }
+    }
+
+    // Hide featured section entirely if no tabs match
+    const anyFeatured = !!document.querySelector('.tab-btn:not(.tag-hidden)');
+    featuredPanels.style.display = anyFeatured ? '' : 'none';
+    featuredNav.style.display    = anyFeatured ? '' : 'none';
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  // ── Tab switching ──
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = btn.dataset.tab;
-      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-      panels .forEach(p =>   p.classList.remove('active'));
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      btn.setAttribute('aria-selected','true');
+      btn.setAttribute('aria-selected', 'true');
       document.getElementById('panel-' + idx).classList.add('active');
     });
   });
 
-  // Gallery
+  // ── Gallery modal ──
   const backdrop = document.getElementById('modal-backdrop');
-  const cards    = document.querySelectorAll('.gallery-card');
 
   function openModal(card) {
     document.getElementById('modal-category').textContent = card.dataset.category;
     document.getElementById('modal-title')   .textContent = card.dataset.title;
     document.getElementById('modal-text')    .textContent = card.dataset.excerpt;
-
-    // Mirror the thumb into the modal image area
     const imgArea = document.getElementById('modal-img');
     imgArea.className = 'modal-img';
     imgArea.innerHTML = '';
-    const thumb = card.querySelector('.card-thumb');
+    const thumb    = card.querySelector('.card-thumb');
     const thumbImg = thumb.querySelector('img');
     if (thumbImg) {
       const el = document.createElement('img');
@@ -245,10 +301,9 @@
       el.alt = thumbImg.alt;
       imgArea.appendChild(el);
     } else {
-      if (thumb.classList.contains('blue-tint'))  imgArea.classList.add('blue-tint');
-      if (thumb.classList.contains('dark-tint'))  imgArea.classList.add('dark-tint');
+      if (thumb.classList.contains('blue-tint')) imgArea.classList.add('blue-tint');
+      if (thumb.classList.contains('dark-tint')) imgArea.classList.add('dark-tint');
     }
-
     backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -258,7 +313,7 @@
     document.body.style.overflow = '';
   }
 
-  cards.forEach(card => card.addEventListener('click', () => openModal(card)));
+  galleryCards.forEach(card => card.addEventListener('click', () => openModal(card)));
   document.getElementById('modal-close').addEventListener('click', closeModal);
   backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });

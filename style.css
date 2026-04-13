@@ -118,6 +118,61 @@ footer a:hover { text-decoration: underline; }
   color: var(--umber-deep);
 }
 
+/* Gallery section header row (title + filter pills) */
+.gallery-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.gallery-section-header .section-title { margin-bottom: 0; }
+
+/* Filter pills */
+.header-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.filter-btn {
+  background: none;
+  border: 1.5px solid var(--umber-pale);
+  border-radius: 100px;
+  color: var(--text-light);
+  padding: 0.28rem 1.05rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.filter-btn:hover {
+  border-color: var(--umber-mid);
+  color: var(--text-dark);
+}
+.filter-btn.active {
+  background: var(--umber-deep);
+  border-color: var(--umber-deep);
+  color: var(--cream);
+}
+
+/* Filtered-out items */
+.tag-hidden { display: none !important; }
+
+/* Gallery empty state */
+.gallery-empty {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 3.5rem 1rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.gallery-empty.visible { display: block; }
+
 /* Featured nav tabs — sits below the project card */
 .featured-nav {
   background: var(--umber);
@@ -269,7 +324,7 @@ footer a:hover { text-decoration: underline; }
   font-size: 1.7rem;
   font-weight: 700;
   color: var(--umber-deep);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 .gallery-grid {
   display: grid;
