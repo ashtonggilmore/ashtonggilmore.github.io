@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashton Gilmore's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -11,316 +14,446 @@
 </head>
 <body class="page-index">
 
-<!-- ── Header ── -->
-<header>
-  <div class="header-inner">
-    <div class="header-title">
-      <h1><span>Ashton</span> Gilmore</h1>
-      <p>CAD/CAM &nbsp;|&nbsp; Design &nbsp;|&nbsp; Code</p>
-    </div>
-    <a href="assets/Gilmore_Ashton_Resume_4_13_26.pdf" target="_blank" class="resume-btn">Resume</a>
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="top-bar">
+    <span class="wordmark">AG · Portfolio '26</span>
+    <a href="assets/Gilmore_Ashton_Resume_4_13_26.pdf" target="_blank" class="resume-btn">
+      Resume
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+    </a>
   </div>
-</header>
 
-<!-- ── Featured (tabs left, panel right) ── -->
-<div class="featured-wrap">
+  <div class="hero-content">
+    <h1>
+      <span class="first">Ashton</span><span class="pipe">|</span><span class="last">Gilmore</span>
+    </h1>
 
-<!-- ── Featured Project Tabs ── -->
-<nav class="featured-nav" role="tablist" aria-label="Featured projects">
-  <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="0" data-tags="cad-cam design">Bell Tower Kit Card</button>
-  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="1" data-tags="cad-cam design">Cipher Activity</button>
-  <button class="tab-btn"        role="tab" aria-selected="false" data-tab="2" data-tags="cad-cam design">3D Printing Curriculums</button>
-</nav>
+    <div class="hero-sub-label">Filter by Discipline</div>
 
-<section class="featured-panels">
-
-  <div class="project-panel active" id="panel-0" role="tabpanel">
-    <div class="panel-hero"><img src="assets/DSC09099.png" alt="set of three towers DOF effect"></div>
-    <div class="panel-info">
-      <h2>Bell Tower Kit Card</h2>
-      <div class="panel-tags">
-        <span class="machines">Laser Cut</span>
-        <span class="machines">Vector Design</span>
-        <span class="software">Product Photos</span>
-        <span class="software">Instruction Set</span>
+    <div class="filter-stack">
+      <div class="filter-row">
+        <button class="filter-btn" data-filter="cad">
+          CAD<span class="count" id="count-cad"></span>
+        </button>
+        <button class="filter-btn" data-filter="design">
+          Design<span class="count" id="count-design"></span>
+        </button>
+        <button class="filter-btn" data-filter="code">
+          Code<span class="count" id="count-code"></span>
+        </button>
       </div>
-      <p>A 132-piece kit card assembly with packaging, instructions, and product photography.</p>
-      <a href="belltower.html" class="panel-link">View full project</a>
+      <button class="filter-all active" data-filter="all">
+        <span>Show All Disciplines</span>
+        <span class="all-count">· <span id="count-all"></span> projects</span>
+      </button>
     </div>
   </div>
-
-  <div class="project-panel" id="panel-1" role="tabpanel">
-    <div class="panel-hero"><img src="assets/cipher/DSC09151.jpg" alt="cipher wheel"></div>
-    <div class="panel-info">
-      <h2>Caesar Cipher Wheel Activity</h2>
-      <div class="panel-tags">
-        <span class="machines">Graphic Design</span>
-        <span class="machines">CAD</span>
-        <span class="software">3D Print</span>
-        <span class="software">Quick Guide</span>
-      </div>
-      <p>Designed for young students to learn about cryptography in a fun, hands on manner.</p>
-      <a href="cipher.html" class="panel-link">View full project</a>
-    </div>
-  </div>
-
-  <div class="project-panel" id="panel-2" role="tabpanel">
-    <div class="panel-hero" style="background:linear-gradient(135deg,var(--umber-pale) 0%,var(--umber-light) 100%)">
-      <img src="assets/3DP_curriculums/BZIlogo.svg" alt="BZI Steel logo" style="width:65%;height:auto;object-fit:contain">
-    </div>
-    <div class="panel-info">
-      <h2>3D Printing Curriculums</h2>
-      <div class="panel-tags">
-        <span class="machines">3D Print</span>
-        <span class="machines">Curriculum Design</span> 
-        <span class="software">Affinity Publisher</span>
-        <span class="software">Education</span>
-      </div>
-      <p>Structured lesson guides for middle and high school students covering 3D printing fundamentals and intended to be delivered by teachers with low/no printing experience. CAD experience highly recommended.</p>
-      <a href="3dp_curriculums.html" class="panel-link">View full project</a>
-    </div>
-  </div>
-
 </section>
 
-</div><!-- /.featured-wrap -->
-
-<!-- ── Small Project Gallery ── -->
-<section class="gallery-section">
-  <p class="section-heading">Assorted Work</p>
-  <div class="gallery-section-header">
-    <h2 class="section-title">Quick Projects</h2>
-    <nav class="header-filters" aria-label="Filter projects by category">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="cad-cam">CAD / CAM</button>
-      <button class="filter-btn" data-filter="design">Design</button>
-      <button class="filter-btn" data-filter="code">Code</button>
-    </nav>
+<!-- ── Featured ── -->
+<section class="featured-section">
+  <div class="section-label">
+    <span><span class="num">01</span> — Featured Work</span>
   </div>
 
-  <div class="gallery-grid">
+  <div class="featured-grid" id="featured-grid">
 
-    <div class="gallery-card" data-title="Router Organization" data-category="CAD / Fabrication" data-excerpt="A jointed stand for holding ISO30 tapers and the holding bearing for tool changeouts." data-tags="cad-cam">
-      <div class="card-thumb">
-        <img src="assets/routerOrganizer/IMG_20260205_200927.jpg" alt="Router Organization">
+    <a href="belltower.html" class="featured-card hero-card filterable" data-tags="cad design">
+      <div class="fc-media">
+        <div class="fc-badge">
+          <span><span class="dot cad"></span>CAD</span>
+          <span><span class="dot design"></span>Design</span>
+        </div>
+        <img src="assets/DSC09099.png" alt="Bell Tower kit">
       </div>
-      <div class="card-body">
-        <span class="card-category">CAD / CNC Router</span>
-        <span class="card-title">Router Organization</span>
-        <span class="card-sub">A 90 minute project</span>
+      <div class="fc-body">
+        <div class="fc-meta">Laser Cut · Packaging · Photography</div>
+        <h3 class="fc-title">Bell Tower Kit Card</h3>
+        <p class="fc-desc">A 132-piece laser-cut kit card with custom packaging, instruction set, and product photography. Designed, fabricated, and documented end-to-end.</p>
+        <span class="fc-cta">View Project <span class="fc-arrow"></span></span>
       </div>
+    </a>
+
+    <a href="cipher.html" class="featured-card filterable" data-tags="cad design">
+      <div class="fc-media">
+        <div class="fc-badge">
+          <span><span class="dot cad"></span>CAD</span>
+          <span><span class="dot design"></span>Design</span>
+        </div>
+        <img src="assets/cipher/DSC09151.jpg" alt="Cipher wheel">
+      </div>
+      <div class="fc-body">
+        <div class="fc-meta">3D Print · Education</div>
+        <h3 class="fc-title">Caesar Cipher Wheel</h3>
+        <p class="fc-desc">A hands-on cryptography activity for young students.</p>
+        <span class="fc-cta">View Project <span class="fc-arrow"></span></span>
+      </div>
+    </a>
+
+    <a href="3dp_curriculums.html" class="featured-card filterable" data-tags="design">
+      <div class="fc-media contain" style="background:linear-gradient(135deg,var(--umber-pale),var(--umber-light))">
+        <div class="fc-badge"><span class="dot design"></span>Design</div>
+        <img src="assets/3DP_curriculums/BZIlogo.svg" alt="BZI Steel logo">
+      </div>
+      <div class="fc-body">
+        <div class="fc-meta">Curriculum · Affinity Publisher</div>
+        <h3 class="fc-title">3D Printing Curriculums</h3>
+        <p class="fc-desc">Structured lesson guides for middle and high school teachers.</p>
+        <span class="fc-cta">View Project <span class="fc-arrow"></span></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Gallery ── -->
+<section class="gallery-section">
+  <div class="section-label">
+    <span><span class="num">02</span> — Quick Projects</span>
+  </div>
+  <div class="gallery-header">
+    <h2>Assorted <em>work</em></h2>
+    <div class="gallery-status">
+      Showing <strong id="visible-count">9</strong> / <span id="total-count">9</span> projects
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Router Organization","category":"CAD / CNC Router","tags":["CAD","Fabrication","ISO30"],"images":["assets/routerOrganizer/IMG_20260205_200927.jpg","assets/routerOrganizer/IMG_20260205_200919.jpg"],"desc":"<p>A jointed stand for holding ISO30 tapers and the holding bearing for tool changeouts on the shop router.</p><p>Designed, fabricated, and installed in roughly 90 minutes — a good reminder that the fastest projects are often the ones that solve a real, immediate problem.</p>","specs":{"Time":"90 min","Process":"CNC Router","Material":"Plywood + hardware"}}'>
+      <div class="gc-thumb">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/routerOrganizer/IMG_20260205_200927.jpg" alt="Router organization">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / CNC Router</span>
+        <span class="gc-title">Router Organization</span>
+        <span class="gc-sub">A 90-minute project.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Car Badges","category":"CAD / CAM","tags":["Laser","CAM","Stainless","Brass"],"images":["assets/miatabadges/flameBadge.jpg","assets/miatabadges/miataBadge.jpg"],"desc":"<p>Plasma-cut stainless steel and brass badges for a 1996 Miata project car.</p><p>Vector art drawn in Affinity Designer, toolpaths generated in Fusion 360, finished by hand with a wire wheel and clearcoat.</p>","specs":{"Process":"Plasma CAM","Material":"304 SS / Brass","Finish":"Brushed + clearcoat"}}'>
+      <div class="gc-thumb">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/miatabadges/flameBadge.jpg" alt="Car badges">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / CAM</span>
+        <span class="gc-title">Car Badges</span>
+        <span class="gc-sub">Plasma-cut stainless and brass.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Glue Stick Holder","category":"CAD / 3D Print","tags":["3D Print","Mid-century","Organization"],"images":["assets/glueHolder/IMG_20250124_175549.jpg","assets/glueHolder/IMG_20250124_175530.jpg"],"desc":"<p>A mid-century styled glue stick holder for 3D printing organization.</p><p>Designed in Fusion 360 in about two hours, printed in PLA on a Prusa MK4. Single-body, no supports.</p>","specs":{"Tool":"Fusion 360","Material":"PLA","Print time":"3 hrs"}}'>
+      <div class="gc-thumb">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/glueHolder/IMG_20250124_175549.jpg" alt="Glue stick holder">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / 3D Print</span>
+        <span class="gc-title">Glue Stick Holder</span>
+        <span class="gc-sub">Stylish organization.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Zlant Keyboard Case","category":"CAD / Laser / Soldering","tags":["Laser","Acrylic","Soldering"],"images":["assets/zlant/zlantKeyboard.jpg"],"desc":"<p>Laser-cut acrylic case for a Zlant split-ergo keyboard.</p><p>Drawn in CorelDraw X7 based on sketches from Colton Burnside. Stacked acrylic plates with M2 brass standoffs; hand-soldered Kailh hotswap sockets.</p>","specs":{"Process":"Laser cut","Material":"3mm acrylic","Switches":"Kailh Box"}}'>
+      <div class="gc-thumb">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/zlant/zlantKeyboard.jpg" alt="Zlant keyboard">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / Laser / Soldering</span>
+        <span class="gc-title">Zlant Keyboard Case</span>
+        <span class="gc-sub">Laser-cut acrylic case.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="design"
+      data-project='{"title":"Stone &amp; Strata Logo","category":"Vector Art","tags":["Brand","Vector","Logo"],"images":["assets/stone_strata_logo/stone_and_strata_light.png"],"imageMode":"contain","desc":"<p>A brand styling practice session for a fictional outdoor retailer.</p><p>Forms and color palette inspired by the layered sandstone of Southern Utah. Built in Affinity Designer; variants for light, dark, and monochrome use.</p>","specs":{"Tool":"Affinity Designer","Type":"Practice"}}'>
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot design"></span>Design</span>
+        <img src="assets/stone_strata_logo/stone_and_strata_light.png" alt="Stone &amp; Strata logo">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Vector Art</span>
+        <span class="gc-title">Stone &amp; Strata Logo</span>
+        <span class="gc-sub">Inspired by Southern Utah.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="design"
+      data-project='{"title":"Miata Creations Logo","category":"Vector Art","tags":["Logo","Vector","Stickers"],"images":["assets/miata_creations/miataCreationsLogoV1.png"],"imageMode":"contain","desc":"<p>Designed to reduce cleanly at 1.25-inch sticker size, with clear silhouette recognition even as a single-color print.</p>","specs":{"Tool":"Affinity Designer","Output":"1.25&quot; stickers"}}'>
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot design"></span>Design</span>
+        <img src="assets/miata_creations/miataCreationsLogoV1.png" alt="Miata Creations logo">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Vector Art</span>
+        <span class="gc-title">Miata Creations Logo</span>
+        <span class="gc-sub">Intended for 1.25" stickers.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Handwired Keyboard","category":"Soldering Practice","tags":["Soldering","Handwire","3D Print"],"images":["assets/cygnus/handwiredKeyboard.jpg"],"desc":"<p>A 3D-printed keyboard with a fully handwired matrix. Neat diodes and 22-gauge solid-core wire make up the rows and columns.</p><p>An exercise in patience and in the practical limits of point-to-point wiring at scale.</p>","specs":{"Wire":"22g solid","Diodes":"1N4148","Time":"~14 hrs"}}'>
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/cygnus/handwiredKeyboard.jpg" alt="Handwired keyboard">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Soldering</span>
+        <span class="gc-title">Handwired Keyboard</span>
+        <span class="gc-sub">Diodes and 22g solidcore matrix.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Hardware Bins","category":"3D Print / Organization","tags":["Gridfinity","3D Print","Sorting"],"images":["assets/inventoryManagement/inventoryInside.jpg","assets/inventoryManagement/inventoryOutside.jpg"],"desc":"<p>A Gridfinity-derived hardware sorting system, modified for metal pins, thickened corners, and increased everyday durability.</p>","specs":{"Base":"Gridfinity","Material":"PETG","Print time":"~9 hrs/unit"}}'>
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/inventoryManagement/inventoryInside.jpg" alt="Hardware bins">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">3D Print · Organization</span>
+        <span class="gc-title">Hardware Bins</span>
+        <span class="gc-sub">Gridfinity, modified for durability.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad"
+      data-project='{"title":"Computer Work Table","category":"Woodworking","tags":["Woodworking","Furniture","CAD"],"images":["assets/computerTable/computerTable.jpg"],"desc":"<p>Constructed of 2×4s for budget reasons — it provides a home for six CAD computer workstations.</p><p>Features custom monitor mounts, power and ethernet routing, stool-height seating, and foot rests.</p>","specs":{"Stations":"6","Material":"2x4 pine","Extras":"Mounts + cable runs"}}'>
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/computerTable/computerTable.jpg" alt="Computer table">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Woodworking</span>
+        <span class="gc-title">Computer Work Table</span>
+        <span class="gc-sub">Holds 6 CAD workstations.</span>
+      </div>
+    </article>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <h3>No <em>projects</em> in this category yet.</h3>
+      <p>Projects in this discipline are in progress. Check back soon, or reach out directly.</p>
+      <span class="pip">In progress</span>
     </div>
 
-    <div class="gallery-card" data-title="Car Badges" data-category="CAD / Fabrication" data-excerpt="Plasma cut stainless steel and brass badges for my 1996 Miata project." data-tags="cad-cam">
-      <div class="card-thumb">
-        <img src="assets/miatabadges/flameBadge.jpg" alt="Car Badges">
-      </div>
-      <div class="card-body">
-        <span class="card-category">CAD / CAM</span>
-        <span class="card-title">Car Badges</span>
-        <span class="card-sub">Laser Cut Brass and Stainless</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Glue Stick Holder" data-category="CAD / Fabrication" data-excerpt="3D printed mid-century styled glue stick holder for 3D printing organization." data-tags="cad-cam">
-      <div class="card-thumb">
-        <img src="assets/glueHolder/IMG_20250124_175549.jpg" alt="Gluestick Stand">
-      </div>
-      <div class="card-body">
-        <span class="card-category">CAD / 3d Print</span>
-        <span class="card-title">Glue Stick Holder</span>
-        <span class="card-sub">Stylish Organization</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Zlant Keyboard" data-category="CAD / Fabrication" data-excerpt="Laser cut acrylic case for Zlant keyboard." data-tags="cad-cam">
-      <div class="card-thumb">
-        <img src="assets/zlant/zlantKeyboard.jpg" alt="Zlant">
-      </div>
-      <div class="card-body">
-        <span class="card-category">CAD / Laser / Soldering</span>
-        <span class="card-title">Zlant Keyboard Case</span>
-        <span class="card-sub">Drawn in CorelDraw X7 based on sketches from Colton Burnside: https://www.linkedin.com/in/colton-burnside-a7b3292a9/</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Stone & Strata" data-category="Affinity Vector Art" data-excerpt="A brand styling practice session." data-tags="design">
-      <div class="card-thumb contain">
-        <img src="assets/stone_strata_logo/stone_and_strata_light.png" alt="SaS Logo">
-      </div>
-      <div class="card-body">
-        <span class="card-category">Vector Art</span>
-        <span class="card-title">Stone & Strata Logo Design</span>
-        <span class="card-sub">Inspired by the Forms & Colors of Southern Utah</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="MiataCreations Logo" data-category="Affinity Vector Art" data-excerpt="More logo practice." data-tags="design">
-      <div class="card-thumb contain">
-        <img src="assets/miata_creations/miataCreationsLogoV1.png" alt="MiataCreations Logo">
-      </div>
-      <div class="card-body">
-        <span class="card-category">Vector Art</span>
-        <span class="card-title">Miata Creations Logo Design</span>
-        <span class="card-sub">Intended for 1.25" stickers.</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Cygnus Keyboard: Handwired" data-category="Soldering" data-excerpt="Handwiring a 3D printed keyboard" data-tags="cad-cam">
-      <div class="card-thumb contain">
-        <img src="assets/cygnus/handwiredKeyboard.jpg" alt="cygnusback">
-      </div>
-      <div class="card-body">
-        <span class="card-category">Soldering Practice</span>
-        <span class="card-title">Handwired Keyboard</span>
-        <span class="card-sub">Neat diodes & 22g solidcore to make the matrix.</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Inventory Management" data-category="3D Printing / Organization" data-excerpt="Inventory Sorting from an existing solution. Modified for metal pins, thickened corners, and increased durability." data-tags="cad-cam">
-      <div class="card-thumb contain">
-        <img src="assets/inventoryManagement/inventoryInside.jpg" alt="inventoryInside">
-      </div>
-      <div class="card-body">
-        <span class="card-category">Gridfinity Hardware Sorting</span>
-        <span class="card-title">Hardware Bins</span>
-        <span class="card-sub">Modified from existing design.</span>
-      </div>
-    </div>
-
-    <div class="gallery-card" data-title="Computer Work Table" data-category="Woodworking" data-excerpt="Constructed of 2x4s for budget reasons, it provides a place to hold 6 CAD computer workstations." data-tags="cad-cam">
-      <div class="card-thumb contain">
-        <img src="assets/computerTable/computerTable.jpg" alt="inventoryInside">
-      </div>
-      <div class="card-body">
-        <span class="card-category">Custom Furniture Solution</span>
-        <span class="card-title">Computer Table</span>
-        <span class="card-sub">With custom monitor mounting solutions, power and internet routing, stool height, and foot rests.</span>
-      </div>
-    </div>
-
-    <div class="gallery-empty" id="gallery-empty">No projects in this category yet.</div>
   </div>
 </section>
 
 <!-- ── Modal ── -->
 <div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal">
+  <div class="modal" role="document">
     <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
-    <div class="modal-img" id="modal-img"></div>
+
+    <div class="modal-media" id="modal-media">
+      <div class="modal-counter" id="modal-counter">1 / 1</div>
+      <div class="modal-media-track" id="modal-media-track"></div>
+      <button class="modal-arrow prev" id="modal-prev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button class="modal-arrow next" id="modal-next" aria-label="Next image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="modal-dots" id="modal-dots"></div>
+    </div>
+
     <div class="modal-body">
-      <p class="modal-category" id="modal-category"></p>
-      <h3 class="modal-title"  id="modal-title"></h3>
-      <p class="modal-text"    id="modal-text"></p>
+      <div class="modal-eyebrow" id="modal-category"></div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-tags" id="modal-tags"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <dl class="modal-specs" id="modal-specs"></dl>
+      <div class="modal-cta-row">
+        <button class="modal-cta ghost" id="modal-cta-close">Close</button>
+      </div>
+      <div class="modal-kbd" aria-hidden="true">
+        <kbd>←</kbd><kbd>→</kbd> navigate · <kbd>Esc</kbd> close
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ── Footer ── -->
 <footer>
-  <p>2026 Ashton Gilmore &nbsp;·&nbsp; <a href="mailto:ashtonggilmore@gmail.com">ashtonggilmore@gmail.com</a></p>
+  <div class="row">
+    <span>© 2026 Ashton Gilmore</span>
+    <a href="mailto:ashtonggilmore@gmail.com">ashtonggilmore@gmail.com</a>
+    <a href="privacypolicy.html">Privacy Policy</a>
+  </div>
 </footer>
 
 <script>
-  const tabBtns        = document.querySelectorAll('.tab-btn');
-  const panels         = document.querySelectorAll('.project-panel');
-  const galleryCards   = document.querySelectorAll('.gallery-card');
-  const featuredPanels = document.querySelector('.featured-panels');
-  const featuredNav    = document.querySelector('.featured-nav');
-  const galleryEmpty   = document.getElementById('gallery-empty');
+/* ── Filter logic ── */
+const STORAGE_KEY = 'ag-portfolio-filter';
+const filterButtons  = document.querySelectorAll('[data-filter]');
+const filterables    = document.querySelectorAll('.filterable');
+const emptyState     = document.getElementById('empty-state');
+const visibleCountEl = document.getElementById('visible-count');
+const totalCountEl   = document.getElementById('total-count');
+const featuredGrid   = document.getElementById('featured-grid');
 
-  // ── Filter ──
-  function applyFilter(filter) {
-    // Gallery cards
-    let visibleCards = 0;
-    galleryCards.forEach(card => {
-      const tags = (card.dataset.tags || '').split(' ');
-      const show = filter === 'all' || tags.includes(filter);
-      card.classList.toggle('tag-hidden', !show);
-      if (show) visibleCards++;
-    });
-    galleryEmpty.classList.toggle('visible', visibleCards === 0);
+function updateCounts() {
+  const counts = { all: 0, cad: 0, design: 0, code: 0 };
+  document.querySelectorAll('.gallery-card.filterable, .featured-card.filterable').forEach(el => {
+    counts.all++;
+    (el.dataset.tags || '').split(' ').forEach(t => { if (t in counts) counts[t]++; });
+  });
+  document.getElementById('count-all').textContent    = counts.all;
+  document.getElementById('count-cad').textContent    = counts.cad;
+  document.getElementById('count-design').textContent = counts.design;
+  document.getElementById('count-code').textContent   = counts.code;
+  totalCountEl.textContent = counts.all;
+}
+updateCounts();
 
-    // Featured tab buttons
-    tabBtns.forEach(btn => {
-      const tags = (btn.dataset.tags || '').split(' ');
-      const show = filter === 'all' || tags.includes(filter);
-      btn.classList.toggle('tag-hidden', !show);
-    });
+function applyFilter(filter) {
+  localStorage.setItem(STORAGE_KEY, filter);
+  filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
 
-    // If active tab is now hidden, switch to first visible tab
-    const stillActive = document.querySelector('.tab-btn.active:not(.tag-hidden)');
-    if (!stillActive) {
-      const firstVisible = document.querySelector('.tab-btn:not(.tag-hidden)');
-      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-      panels.forEach(p => p.classList.remove('active'));
-      if (firstVisible) {
-        firstVisible.classList.add('active');
-        firstVisible.setAttribute('aria-selected', 'true');
-        document.getElementById('panel-' + firstVisible.dataset.tab).classList.add('active');
-      }
-    }
+  let visibleGallery  = 0;
+  let visibleFeatured = 0;
 
-    // Hide featured section entirely if no tabs match
-    const anyFeatured = !!document.querySelector('.tab-btn:not(.tag-hidden)');
-    featuredPanels.style.display = anyFeatured ? '' : 'none';
-    featuredNav.style.display    = anyFeatured ? '' : 'none';
+  document.querySelectorAll('.gallery-card.filterable').forEach((el, i) => {
+    const tags = (el.dataset.tags || '').split(' ');
+    const show = filter === 'all' || tags.includes(filter);
+    el.classList.toggle('filtered-out', !show);
+    if (show) { el.style.animationDelay = (i * 40) + 'ms'; visibleGallery++; }
+  });
+
+  document.querySelectorAll('.featured-card.filterable').forEach(el => {
+    const tags = (el.dataset.tags || '').split(' ');
+    const show = filter === 'all' || tags.includes(filter);
+    el.classList.toggle('filtered-out', !show);
+    if (show) visibleFeatured++;
+  });
+
+  featuredGrid.style.display = visibleFeatured > 0 ? '' : 'none';
+  visibleCountEl.textContent = visibleGallery;
+
+  if (visibleGallery === 0) {
+    emptyState.style.display = 'block';
+    emptyState.querySelector('h3').innerHTML =
+      'No <em>' + (filter === 'all' ? 'projects' : filter) + '</em> in this category yet.';
+  } else {
+    emptyState.style.display = 'none';
+  }
+}
+
+filterButtons.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+applyFilter(localStorage.getItem(STORAGE_KEY) || 'all');
+
+/* ── Modal ── */
+const modalBackdrop = document.getElementById('modal-backdrop');
+const modalTrack    = document.getElementById('modal-media-track');
+const modalMedia    = document.getElementById('modal-media');
+const modalPrev     = document.getElementById('modal-prev');
+const modalNext     = document.getElementById('modal-next');
+const modalDots     = document.getElementById('modal-dots');
+const modalCounter  = document.getElementById('modal-counter');
+
+let currentImgIdx = 0;
+
+function renderImage(idx) {
+  const imgs = modalTrack.querySelectorAll('img');
+  imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+  modalDots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('active', i === idx));
+  if (imgs.length > 0) {
+    modalCounter.textContent = (idx + 1) + ' / ' + imgs.length;
+    modalCounter.style.display = '';
+  } else {
+    modalCounter.style.display = 'none';
+  }
+  currentImgIdx = idx;
+}
+
+function showImage(delta) {
+  const imgs = modalTrack.querySelectorAll('img');
+  if (imgs.length < 2) return;
+  renderImage((currentImgIdx + delta + imgs.length) % imgs.length);
+}
+
+function openModal(data) {
+  document.getElementById('modal-category').textContent = data.category || '';
+  document.getElementById('modal-title').innerHTML      = data.title || '';
+  document.getElementById('modal-tags').innerHTML       =
+    (data.tags || []).map(t => '<span class="modal-tag">' + t + '</span>').join('');
+  document.getElementById('modal-desc').innerHTML       = data.desc || '';
+
+  const specsEl = document.getElementById('modal-specs');
+  const specEntries = Object.entries(data.specs || {});
+  if (specEntries.length === 0) {
+    specsEl.style.display = 'none';
+  } else {
+    specsEl.style.display = '';
+    specsEl.innerHTML = specEntries.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
   }
 
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilter(btn.dataset.filter);
+  modalTrack.innerHTML = '';
+  modalDots.innerHTML  = '';
+  modalMedia.classList.toggle('contain', data.imageMode === 'contain');
+  const images = data.images || [];
+
+  if (images.length === 0) {
+    modalTrack.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--umber-pale),var(--umber-light));color:rgba(58,46,36,0.55);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;text-align:center;padding:2rem;">Project shot<br>coming soon</div>';
+    modalPrev.hidden = modalNext.hidden = true;
+    modalCounter.style.display = 'none';
+  } else {
+    images.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = (data.title || '') + ' image ' + (i + 1);
+      if (i === 0) img.classList.add('active');
+      modalTrack.appendChild(img);
     });
-  });
-
-  // ── Tab switching ──
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idx = btn.dataset.tab;
-      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-      panels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      document.getElementById('panel-' + idx).classList.add('active');
-    });
-  });
-
-  // ── Gallery modal ──
-  const backdrop = document.getElementById('modal-backdrop');
-
-  function openModal(card) {
-    document.getElementById('modal-category').textContent = card.dataset.category;
-    document.getElementById('modal-title')   .textContent = card.dataset.title;
-    document.getElementById('modal-text')    .textContent = card.dataset.excerpt;
-    const imgArea = document.getElementById('modal-img');
-    imgArea.className = 'modal-img';
-    imgArea.innerHTML = '';
-    const thumb    = card.querySelector('.card-thumb');
-    const thumbImg = thumb.querySelector('img');
-    if (thumbImg) {
-      const el = document.createElement('img');
-      el.src = thumbImg.src;
-      el.alt = thumbImg.alt;
-      imgArea.appendChild(el);
+    if (images.length > 1) {
+      images.forEach((_, i) => {
+        const dot = document.createElement('button');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => renderImage(i));
+        modalDots.appendChild(dot);
+      });
+      modalPrev.hidden = modalNext.hidden = false;
     } else {
-      if (thumb.classList.contains('blue-tint')) imgArea.classList.add('blue-tint');
-      if (thumb.classList.contains('dark-tint')) imgArea.classList.add('dark-tint');
+      modalPrev.hidden = modalNext.hidden = true;
     }
-    backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    renderImage(0);
   }
 
-  function closeModal() {
-    backdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  modalBackdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
-  galleryCards.forEach(card => card.addEventListener('click', () => openModal(card)));
-  document.getElementById('modal-close').addEventListener('click', closeModal);
-  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function closeModal() {
+  modalBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.gallery-card[data-project]').forEach(card => {
+  card.addEventListener('click', () => {
+    try { openModal(JSON.parse(card.dataset.project)); }
+    catch (e) { console.error('Bad project data', e); }
+  });
+});
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-cta-close').addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', e => { if (e.target === modalBackdrop) closeModal(); });
+modalPrev.addEventListener('click', () => showImage(-1));
+modalNext.addEventListener('click', () => showImage(1));
+
+document.addEventListener('keydown', e => {
+  if (!modalBackdrop.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeModal();
+  else if (e.key === 'ArrowLeft')  showImage(-1);
+  else if (e.key === 'ArrowRight') showImage(1);
+});
 </script>
 
 </body>

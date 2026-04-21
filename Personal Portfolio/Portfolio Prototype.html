@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashton Gilmore — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --umber-deep:   #3a2e24;
+    --umber:        #6c584c;
+    --umber-mid:    #a98467;
+    --umber-light:  #adc178;
+    --umber-pale:   #dde5b6;
+    --cream:        #f0ead2;
+    --cream-soft:   #f7f2de;
+    --text-dark:    #2e241b;
+    --text-mid:     #6c584c;
+    --text-light:   #a98467;
+    --accent:       #adc178;
+    --accent-deep:  #7a8f4e;
+    --shadow-sm:    0 2px 6px rgba(58,46,36,0.08);
+    --shadow-md:    0 8px 24px rgba(58,46,36,0.12);
+    --shadow-lg:    0 20px 60px rgba(58,46,36,0.22);
+    --radius-sm:    6px;
+    --radius-md:    10px;
+    --radius-lg:    16px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+  /* ============================================================
+     HERO / HEADER
+     ============================================================ */
+  .hero {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) 2rem clamp(4rem, 10vw, 7rem);
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(173,193,120,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(169,132,103,0.14) 0%, transparent 50%),
+      var(--cream);
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(108,88,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108,88,76,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .top-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto 3rem;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--umber);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .wordmark::before {
+    content: '';
+    width: 9px; height: 9px;
+    background: var(--accent);
+    border-radius: 2px;
+    display: inline-block;
+    transform: rotate(45deg);
+  }
+  .resume-btn {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--umber-deep);
+    padding: 0.6rem 1.1rem;
+    border: 1.5px solid var(--umber-deep);
+    border-radius: 100px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .resume-btn:hover {
+    background: var(--umber-deep);
+    color: var(--cream);
+  }
+  .resume-btn svg { width: 14px; height: 14px; }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(3.2rem, 10vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--umber-deep);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 .first {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--umber);
+  }
+  .hero h1 .last {
+    font-weight: 500;
+  }
+
+  .hero-sub-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .hero-sub-label::before,
+  .hero-sub-label::after {
+    content: '';
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--umber-mid);
+    opacity: 0.4;
+  }
+
+  /* ============================================================
+     FILTER BUTTONS — the subheading as filters
+     ============================================================ */
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    margin-top: 0.2rem;
+  }
+
+  /* Style: underline (default, matches sketch) */
+  .filter-btn {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    letter-spacing: 0.02em;
+    color: var(--umber);
+    padding: 0.1rem 0;
+    position: relative;
+    transition: color 0.25s ease, transform 0.2s ease;
+    line-height: 1.1;
+  }
+  .filter-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 3px;
+    background: var(--umber-deep);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(.7,.2,.2,1);
+  }
+  .filter-btn:hover { color: var(--umber-deep); }
+  .filter-btn:hover::after { transform: scaleX(1); }
+  .filter-btn.active {
+    color: var(--umber-deep);
+    font-weight: 500;
+  }
+  .filter-btn.active::after {
+    transform: scaleX(1);
+    height: 4px;
+    background: var(--accent-deep);
+  }
+  .filter-btn .count {
+    font-family: var(--mono);
+    font-size: 0.55em;
+    font-weight: 400;
+    color: var(--text-light);
+    vertical-align: super;
+    margin-left: 0.25em;
+    letter-spacing: 0;
+  }
+
+  /* Reset "All" chip */
+  .filter-all {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--umber-mid);
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    align-self: center;
+  }
+  .filter-all:hover {
+    color: var(--umber-deep);
+    border-color: var(--umber-deep);
+  }
+  .filter-all.active {
+    background: var(--umber-deep);
+    color: var(--cream);
+    border-color: var(--umber-deep);
+  }
+
+  .filter-row.with-all {
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+  .filter-row .divider {
+    width: 1px;
+    height: 28px;
+    background: var(--umber-mid);
+    opacity: 0.3;
+  }
+
+  /* STYLE VARIANT: PILL */
+  body[data-filter-style="pill"] .filter-btn {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.6rem;
+    border: 1.5px solid var(--umber-mid);
+    border-radius: 100px;
+    background: transparent;
+  }
+  body[data-filter-style="pill"] .filter-btn::after { display: none; }
+  body[data-filter-style="pill"] .filter-btn:hover {
+    background: rgba(108,88,76,0.08);
+    border-color: var(--umber-deep);
+  }
+  body[data-filter-style="pill"] .filter-btn.active {
+    background: var(--umber-deep);
+    color: var(--cream);
+    border-color: var(--umber-deep);
+  }
+
+  /* STYLE VARIANT: BRACKETED */
+  body[data-filter-style="bracket"] .filter-btn {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 1.3rem;
+  }
+  body[data-filter-style="bracket"] .filter-btn::before {
+    content: '[';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--accent-deep);
+  }
+  body[data-filter-style="bracket"] .filter-btn::after {
+    content: ']';
+    left: auto;
+    right: 0;
+    bottom: auto;
+    top: 50%;
+    height: auto;
+    background: none;
+    transform: translateY(-50%) translateX(-8px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--accent-deep);
+  }
+  body[data-filter-style="bracket"] .filter-btn:hover::before,
+  body[data-filter-style="bracket"] .filter-btn.active::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  body[data-filter-style="bracket"] .filter-btn:hover::after,
+  body[data-filter-style="bracket"] .filter-btn.active::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* ============================================================
+     FEATURED PROJECTS — large full-width tiles under header
+     ============================================================ */
+  .featured-section {
+    padding: 4rem 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--umber-mid);
+    opacity: 0.3;
+  }
+  .section-label .num {
+    color: var(--accent-deep);
+    font-weight: 500;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .featured-card {
+    position: relative;
+    background: var(--cream-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(.3,.8,.3,1), box-shadow 0.4s ease, opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+  }
+  .featured-card.hero {
+    grid-row: span 2;
+    min-height: 560px;
+  }
+  .featured-card .fc-media {
+    position: relative;
+    flex: 1;
+    min-height: 260px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--umber-pale), var(--umber-light));
+  }
+  .featured-card.hero .fc-media { min-height: 380px; }
+  .featured-card .fc-media img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(.3,.8,.3,1);
+  }
+  .featured-card .fc-media.contain img { object-fit: contain; padding: 12%; }
+  .featured-card:hover .fc-media img { transform: scale(1.04); }
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .fc-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    background: rgba(246,242,222,0.92);
+    color: var(--umber-deep);
+    border-radius: 4px;
+    backdrop-filter: blur(6px);
+    z-index: 2;
+  }
+  .fc-badge.multi { display: flex; gap: 0.35rem; }
+  .fc-badge .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 0.3rem;
+  }
+  .dot.cad { background: #a98467; }
+  .dot.design { background: #adc178; }
+  .dot.code { background: #8b9dc3; }
+
+  .fc-body {
+    padding: 1.4rem 1.6rem 1.6rem;
+    background: var(--cream-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .featured-card.hero .fc-body { padding: 1.8rem 2rem 2rem; }
+
+  .fc-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .fc-meta .tag {
+    color: var(--umber);
+  }
+  .fc-title {
+    font-family: var(--serif);
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    font-weight: 500;
+    color: var(--umber-deep);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .featured-card.hero .fc-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+  }
+  .fc-desc {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+  .fc-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--umber-deep);
+    margin-top: 0.6rem;
+    transition: gap 0.2s ease;
+  }
+  .featured-card:hover .fc-cta { gap: 0.9rem; }
+  .fc-cta .arrow {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--umber-deep);
+    position: relative;
+  }
+  .fc-cta .arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px; height: 7px;
+    border-top: 1px solid var(--umber-deep);
+    border-right: 1px solid var(--umber-deep);
+    transform: rotate(45deg);
+  }
+
+  /* ============================================================
+     GALLERY
+     ============================================================ */
+  .gallery-section {
+    padding: 3rem 2rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .gallery-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .gallery-header h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--umber-deep);
+    letter-spacing: -0.01em;
+  }
+  .gallery-header h2 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--umber);
+  }
+  .gallery-status {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .gallery-status strong { color: var(--accent-deep); font-weight: 500; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .gallery-card {
+    background: var(--cream-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(.3,.8,.3,1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .gallery-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .gc-thumb {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--umber-pale), var(--umber-light));
+    overflow: hidden;
+    position: relative;
+  }
+  .gc-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(.3,.8,.3,1);
+  }
+  .gc-thumb.contain img { object-fit: contain; padding: 1rem; }
+  .gallery-card:hover .gc-thumb img { transform: scale(1.06); }
+
+  .gc-tag {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.5rem;
+    background: rgba(246,242,222,0.92);
+    color: var(--umber-deep);
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+  }
+
+  .gc-body {
+    padding: 1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .gc-category {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .gc-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--umber-deep);
+    line-height: 1.25;
+  }
+  .gc-sub {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 0.15rem;
+  }
+
+  /* Filtering transitions */
+  .filterable {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .filterable.filtered-out {
+    display: none;
+  }
+
+  /* Empty state */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    background:
+      repeating-linear-gradient(135deg, transparent 0px, transparent 22px, rgba(108,88,76,0.04) 22px, rgba(108,88,76,0.04) 23px),
+      var(--cream-soft);
+    border: 1.5px dashed var(--umber-mid);
+    border-radius: var(--radius-lg);
+  }
+  .empty-state h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--umber-deep);
+    margin-bottom: 0.5rem;
+  }
+  .empty-state h3 em { font-style: italic; color: var(--umber); }
+  .empty-state p {
+    color: var(--text-mid);
+    font-size: 0.92rem;
+    max-width: 480px;
+    margin: 0 auto 1.2rem;
+  }
+  .empty-state .pip {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--cream);
+    border-radius: 100px;
+    border: 1px solid var(--umber-mid);
+  }
+  .empty-state .pip::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Footer */
+  footer {
+    background: var(--umber-deep);
+    color: var(--umber-pale);
+    padding: 3rem 2rem;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  footer .row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+  footer a:hover { color: var(--accent); }
+
+  /* ============================================================
+     TWEAKS PANEL
+     ============================================================ */
+  .tweaks-panel {
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 280px;
+    background: var(--cream-soft);
+    border: 1px solid var(--umber-mid);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 1rem 1.2rem 1.2rem;
+    z-index: 50;
+    display: none;
+    font-family: var(--sans);
+  }
+  .tweaks-panel.active { display: block; }
+  .tweaks-panel h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--umber-deep);
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tweaks-panel h4::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+  .tweak-group { margin-bottom: 0.9rem; }
+  .tweak-group label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.4rem;
+  }
+  .tweak-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+  }
+  .tweak-options button {
+    padding: 0.45rem 0.3rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--cream);
+    border: 1px solid var(--umber-mid);
+    border-radius: 4px;
+    color: var(--text-mid);
+    transition: all 0.15s ease;
+  }
+  .tweak-options button:hover { border-color: var(--umber-deep); color: var(--umber-deep); }
+  .tweak-options button.active {
+    background: var(--umber-deep);
+    color: var(--cream);
+    border-color: var(--umber-deep);
+  }
+
+  /* ============================================================
+     Responsive
+     ============================================================ */
+  @media (max-width: 900px) {
+    .featured-grid { grid-template-columns: 1fr; }
+    .featured-card.hero { grid-row: auto; min-height: 420px; }
+    .hero-sub-label::before, .hero-sub-label::after { flex: 0 0 20px; }
+  }
+  @media (max-width: 600px) {
+    .filter-row { gap: 1.3rem; }
+    .top-bar { margin-bottom: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO / HEADER
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="hero" data-screen-label="01 Home">
+  <div class="top-bar">
+    <span class="wordmark">AG · Portfolio '26</span>
+    <a href="#" class="resume-btn" onclick="alert('Would download: Gilmore_Ashton_Resume_4_13_26.pdf'); return false;">
+      Resume
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-content">
+    <h1>
+      <span class="first">Ashton</span>
+      <span class="last">Gilmore</span>
+    </h1>
+
+    <div class="hero-sub-label">Filter by Discipline</div>
+
+    <div class="filter-row with-all" role="tablist" aria-label="Project category">
+      <button class="filter-all active" data-filter="all">All · <span id="count-all">9</span></button>
+      <div class="divider" aria-hidden="true"></div>
+      <button class="filter-btn" data-filter="cad">
+        CAD<span class="count" id="count-cad">6</span>
+      </button>
+      <button class="filter-btn" data-filter="design">
+        Design<span class="count" id="count-design">3</span>
+      </button>
+      <button class="filter-btn" data-filter="code">
+        Code<span class="count" id="count-code">2</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURED
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="featured-section" data-screen-label="02 Featured">
+  <div class="section-label">
+    <span><span class="num">01</span> — Featured Work</span>
+  </div>
+
+  <div class="featured-grid" id="featured-grid">
+
+    <article class="featured-card hero filterable" data-tags="cad design" data-href="belltower.html">
+      <div class="fc-media">
+        <div class="fc-badge multi">
+          <span><span class="dot cad"></span>CAD</span>
+          <span><span class="dot design"></span>Design</span>
+        </div>
+        <img src="assets/DSC09099.png" alt="Bell Tower kit">
+      </div>
+      <div class="fc-body">
+        <div class="fc-meta">
+          <span class="tag">Laser Cut · Packaging · Photography</span>
+        </div>
+        <h3 class="fc-title">Bell Tower Kit Card</h3>
+        <p class="fc-desc">A 132-piece laser-cut kit card with custom packaging, instruction set, and product photography. Designed, fabricated, and documented end-to-end.</p>
+        <span class="fc-cta">View Project <span class="arrow"></span></span>
+      </div>
+    </article>
+
+    <article class="featured-card filterable" data-tags="cad design" data-href="cipher.html">
+      <div class="fc-media">
+        <div class="fc-badge multi">
+          <span><span class="dot cad"></span>CAD</span>
+          <span><span class="dot design"></span>Design</span>
+        </div>
+        <img src="assets/cipher/DSC09151.jpg" alt="Cipher wheel">
+      </div>
+      <div class="fc-body">
+        <div class="fc-meta"><span class="tag">3D Print · Education</span></div>
+        <h3 class="fc-title">Caesar Cipher Wheel</h3>
+        <p class="fc-desc">A hands-on cryptography activity for young students.</p>
+        <span class="fc-cta">View Project <span class="arrow"></span></span>
+      </div>
+    </article>
+
+    <article class="featured-card filterable" data-tags="design" data-href="3dp_curriculums.html">
+      <div class="fc-media contain" style="background:linear-gradient(135deg,var(--umber-pale),var(--umber-light))">
+        <div class="fc-badge"><span class="dot design"></span>Design</div>
+        <img src="assets/3DP_curriculums/BZIlogo.svg" alt="BZI Steel logo">
+      </div>
+      <div class="fc-body">
+        <div class="fc-meta"><span class="tag">Curriculum · Affinity Publisher</span></div>
+        <h3 class="fc-title">3D Printing Curriculums</h3>
+        <p class="fc-desc">Structured lesson guides for middle and high school teachers.</p>
+        <span class="fc-cta">View Project <span class="arrow"></span></span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GALLERY
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="gallery-section" data-screen-label="03 Gallery">
+  <div class="section-label">
+    <span><span class="num">02</span> — Quick Projects</span>
+  </div>
+  <div class="gallery-header">
+    <h2>Assorted <em>work</em></h2>
+    <div class="gallery-status">
+      Showing <strong id="visible-count">9</strong> / <span id="total-count">9</span> projects
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb">
+        <span class="gc-tag"><span class="dot cad"></span>CAD</span>
+        <img src="assets/routerOrganizer/IMG_20260205_200927.jpg" alt="Router organization">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / CNC Router</span>
+        <span class="gc-title">Router Organization</span>
+        <span class="gc-sub">A 90-minute project.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/miatabadges/flameBadge.jpg" alt="Car badges">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / CAM</span>
+        <span class="gc-title">Car Badges</span>
+        <span class="gc-sub">Plasma-cut stainless and brass.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/glueHolder/IMG_20250124_175549.jpg" alt="Glue stick holder">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / 3D Print</span>
+        <span class="gc-title">Glue Stick Holder</span>
+        <span class="gc-sub">Stylish organization.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/zlant/zlantKeyboard.jpg" alt="Zlant keyboard">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">CAD / Laser / Soldering</span>
+        <span class="gc-title">Zlant Keyboard Case</span>
+        <span class="gc-sub">Laser-cut acrylic case.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="design">
+      <div class="gc-thumb contain">
+        <span class="gc-tag"><span class="dot design"></span>Design</span>
+        <img src="assets/stone_strata_logo/stone_and_strata_light.png" alt="Stone & Strata logo">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Vector Art</span>
+        <span class="gc-title">Stone &amp; Strata Logo</span>
+        <span class="gc-sub">Inspired by Southern Utah.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="design">
+      <div class="gc-thumb contain">
+        <span class="gc-tag">Design</span>
+        <img src="assets/miata_creations/miataCreationsLogoV1.png" alt="Miata Creations logo">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Vector Art</span>
+        <span class="gc-title">Miata Creations Logo</span>
+        <span class="gc-sub">Intended for 1.25" stickers.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb contain">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/cygnus/handwiredKeyboard.jpg" alt="Handwired keyboard">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Soldering</span>
+        <span class="gc-title">Handwired Keyboard</span>
+        <span class="gc-sub">Diodes and 22g solidcore matrix.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb contain">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/inventoryManagement/inventoryInside.jpg" alt="Hardware bins">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">3D Print · Organization</span>
+        <span class="gc-title">Hardware Bins</span>
+        <span class="gc-sub">Gridfinity, modified for durability.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable" data-tags="cad">
+      <div class="gc-thumb contain">
+        <span class="gc-tag">CAD</span>
+        <img src="assets/computerTable/computerTable.jpg" alt="Computer table">
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Woodworking</span>
+        <span class="gc-title">Computer Work Table</span>
+        <span class="gc-sub">Holds 6 CAD workstations.</span>
+      </div>
+    </article>
+
+    <!-- Code placeholders — honest empty cards, shown only when code filter might select them -->
+    <article class="gallery-card filterable placeholder" data-tags="code">
+      <div class="gc-thumb" style="background:linear-gradient(135deg,#dde5b6,#a98467);display:flex;align-items:center;justify-content:center;">
+        <span class="gc-tag"><span class="dot code"></span>Code</span>
+        <div style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(58,46,36,0.55);text-align:center;padding:1rem;">
+          project<br>shot<br>tbd
+        </div>
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Python · Arduino</span>
+        <span class="gc-title">Keyboard Firmware Tooling</span>
+        <span class="gc-sub">Placeholder — add project.</span>
+      </div>
+    </article>
+
+    <article class="gallery-card filterable placeholder" data-tags="code">
+      <div class="gc-thumb" style="background:linear-gradient(135deg,#dde5b6,#a98467);display:flex;align-items:center;justify-content:center;">
+        <span class="gc-tag"><span class="dot code"></span>Code</span>
+        <div style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(58,46,36,0.55);text-align:center;padding:1rem;">
+          project<br>shot<br>tbd
+        </div>
+      </div>
+      <div class="gc-body">
+        <span class="gc-category">Web / Jekyll</span>
+        <span class="gc-title">This Portfolio Site</span>
+        <span class="gc-sub">Placeholder — add project.</span>
+      </div>
+    </article>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <h3>No <em>public</em> projects in this category yet.</h3>
+      <p>Projects in this discipline are in progress or under NDA. Check back soon, or reach out directly for a private walkthrough.</p>
+      <span class="pip">In progress</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <span>© 2026 Ashton Gilmore</span>
+    <a href="mailto:hello@example.com">Email</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TWEAKS PANEL
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="tweaks-panel" id="tweaks-panel">
+  <h4>Tweaks</h4>
+  <div class="tweak-group">
+    <label>Filter Button Style</label>
+    <div class="tweak-options" id="tweak-style">
+      <button data-val="underline" class="active">Underline</button>
+      <button data-val="pill">Pill</button>
+      <button data-val="bracket">[ Bracket ]</button>
+    </div>
+  </div>
+  <div class="tweak-group">
+    <label>Hero Background</label>
+    <div class="tweak-options" id="tweak-bg">
+      <button data-val="cream" class="active">Cream</button>
+      <button data-val="paper">Paper</button>
+      <button data-val="umber">Dark</button>
+    </div>
+  </div>
+  <div class="tweak-group">
+    <label>Heading Style</label>
+    <div class="tweak-options" id="tweak-heading">
+      <button data-val="serif" class="active">Serif</button>
+      <button data-val="light">Light</button>
+      <button data-val="bold">Bold</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   TWEAK DEFAULTS
+   ══════════════════════════════════════════════════════════════ */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "filterStyle": "bracket",
+  "heroBg": "umber",
+  "headingStyle": "bold"
+}/*EDITMODE-END*/;
+
+/* ══════════════════════════════════════════════════════════════
+   FILTER LOGIC
+   ══════════════════════════════════════════════════════════════ */
+const STORAGE_KEY = 'ag-portfolio-filter';
+const filterButtons = document.querySelectorAll('[data-filter]');
+const filterables = document.querySelectorAll('.filterable');
+const emptyState = document.getElementById('empty-state');
+const visibleCountEl = document.getElementById('visible-count');
+const totalCountEl = document.getElementById('total-count');
+const featuredGrid = document.getElementById('featured-grid');
+
+// Counts per category
+function updateCounts() {
+  const counts = { all: 0, cad: 0, design: 0, code: 0 };
+  document.querySelectorAll('.gallery-card.filterable, .featured-card.filterable').forEach(el => {
+    counts.all++;
+    const tags = (el.dataset.tags || '').split(' ');
+    tags.forEach(t => { if (counts[t] !== undefined) counts[t]++; });
+  });
+  document.getElementById('count-all').textContent = counts.all;
+  document.getElementById('count-cad').textContent = counts.cad;
+  document.getElementById('count-design').textContent = counts.design;
+  document.getElementById('count-code').textContent = counts.code;
+  totalCountEl.textContent = counts.all;
+}
+updateCounts();
+
+function applyFilter(filter) {
+  localStorage.setItem(STORAGE_KEY, filter);
+
+  filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+
+  let visibleGallery = 0;
+  let visibleFeatured = 0;
+  const galleryCards = document.querySelectorAll('.gallery-card.filterable');
+  const featuredCards = document.querySelectorAll('.featured-card.filterable');
+
+  galleryCards.forEach((el, i) => {
+    const tags = (el.dataset.tags || '').split(' ');
+    const show = filter === 'all' || tags.includes(filter);
+    if (show) {
+      el.classList.remove('filtered-out');
+      el.style.animationDelay = (i * 40) + 'ms';
+      visibleGallery++;
+    } else {
+      el.classList.add('filtered-out');
+    }
+  });
+
+  featuredCards.forEach(el => {
+    const tags = (el.dataset.tags || '').split(' ');
+    const show = filter === 'all' || tags.includes(filter);
+    el.classList.toggle('filtered-out', !show);
+    if (show) visibleFeatured++;
+  });
+
+  // If filter is "code", promote first code card to hero position visually
+  // (handled by CSS grid — simpler: if no large hero visible, drop span)
+  if (visibleFeatured === 0) {
+    featuredGrid.style.display = 'none';
+  } else {
+    featuredGrid.style.display = '';
+  }
+
+  // Visible count (gallery only)
+  visibleCountEl.textContent = visibleGallery;
+
+  // Empty state for gallery
+  const allPlaceholders = filter === 'code' && document.querySelectorAll('.gallery-card.filterable[data-tags~="code"]:not(.placeholder)').length === 0;
+  if (visibleGallery === 0) {
+    emptyState.style.display = 'block';
+    emptyState.querySelector('h3').innerHTML = 'No <em>' + (filter === 'all' ? 'projects' : filter) + '</em> projects yet.';
+  } else if (allPlaceholders) {
+    // Show empty state in addition to placeholder cards as a note
+    emptyState.style.display = 'block';
+    emptyState.querySelector('h3').innerHTML = '<em>Code</em> projects are in active development.';
+    emptyState.querySelector('p').textContent = 'The cards above are stubs awaiting real write-ups. The portfolio site itself is open-source on GitHub.';
+  } else {
+    emptyState.style.display = 'none';
+  }
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+});
+
+// Restore from localStorage
+const saved = localStorage.getItem(STORAGE_KEY) || 'all';
+applyFilter(saved);
+
+/* Card navigation */
+document.querySelectorAll('[data-href]').forEach(card => {
+  card.addEventListener('click', () => {
+    alert('Would navigate to: ' + card.dataset.href);
+  });
+});
+
+/* ══════════════════════════════════════════════════════════════
+   TWEAKS
+   ══════════════════════════════════════════════════════════════ */
+const tweaksPanel = document.getElementById('tweaks-panel');
+let state = { ...TWEAK_DEFAULTS };
+
+function applyTweaks() {
+  document.body.dataset.filterStyle = state.filterStyle;
+  // Hero bg
+  const hero = document.querySelector('.hero');
+  if (state.heroBg === 'paper') {
+    hero.style.background = 'radial-gradient(ellipse at 30% 0%, rgba(173,193,120,0.15) 0%, transparent 55%), #eee4c9';
+  } else if (state.heroBg === 'umber') {
+    hero.style.background = 'radial-gradient(ellipse at 30% 0%, rgba(173,193,120,0.22) 0%, transparent 55%), #3a2e24';
+    document.body.style.setProperty('--umber-deep-in-hero', '#f0ead2');
+    hero.style.color = '#f0ead2';
+    hero.querySelector('h1').style.color = '#f0ead2';
+    hero.querySelector('h1 .first').style.color = '#adc178';
+    hero.querySelectorAll('.filter-btn').forEach(b => b.style.color = '#dde5b6');
+  } else {
+    hero.style.background = '';
+    hero.style.color = '';
+    hero.querySelector('h1').style.color = '';
+    hero.querySelector('h1 .first').style.color = '';
+    hero.querySelectorAll('.filter-btn').forEach(b => b.style.color = '');
+  }
+  // Heading style
+  const h1 = document.querySelector('.hero h1');
+  if (state.headingStyle === 'light') {
+    h1.style.fontWeight = '200';
+    h1.querySelector('.last').style.fontWeight = '300';
+  } else if (state.headingStyle === 'bold') {
+    h1.style.fontWeight = '700';
+    h1.querySelector('.last').style.fontWeight = '700';
+    h1.querySelector('.first').style.fontStyle = 'normal';
+  } else {
+    h1.style.fontWeight = '';
+    h1.querySelector('.last').style.fontWeight = '';
+    h1.querySelector('.first').style.fontStyle = '';
+  }
+}
+applyTweaks();
+
+function wireTweak(groupId, key) {
+  document.querySelectorAll('#' + groupId + ' button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state[key] = btn.dataset.val;
+      document.querySelectorAll('#' + groupId + ' button').forEach(b => b.classList.toggle('active', b === btn));
+      applyTweaks();
+      // Persist to host
+      try {
+        window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: btn.dataset.val } }, '*');
+      } catch(e) {}
+    });
+  });
+}
+wireTweak('tweak-style', 'filterStyle');
+wireTweak('tweak-bg', 'heroBg');
+wireTweak('tweak-heading', 'headingStyle');
+
+// Sync tweak buttons with state (in case restored)
+function syncTweakUI() {
+  [['tweak-style','filterStyle'],['tweak-bg','heroBg'],['tweak-heading','headingStyle']].forEach(([gid,key])=>{
+    document.querySelectorAll('#'+gid+' button').forEach(b => b.classList.toggle('active', b.dataset.val === state[key]));
+  });
+}
+syncTweakUI();
+
+/* Edit mode wiring (Tweaks toggle from host) */
+window.addEventListener('message', (e) => {
+  const d = e.data;
+  if (!d || !d.type) return;
+  if (d.type === '__activate_edit_mode') {
+    tweaksPanel.classList.add('active');
+  } else if (d.type === '__deactivate_edit_mode') {
+    tweaksPanel.classList.remove('active');
+  }
+});
+try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
+</script>
+
+</body>
+</html>
