@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+<article class="project-page">
+  <a class="back-link" href="/#work">← All work</a>
+  <header class="project-heading">
+    <p class="eyebrow">{{ category }}</p>
+    <h1>{{ title }}</h1>
+    <p class="project-summary">{{ summary }}</p>
+  </header>
+  <figure class="project-cover{% if imageFit == 'contain' %} contain{% endif %}"><img src="{{ cover }}" alt="{{ coverAlt }}" width="1440" height="1080" fetchpriority="high" decoding="async"></figure>
+  <div class="project-content-grid">
+    <aside class="project-facts" aria-label="Project details">
+      <dl><dt>My contribution</dt><dd>{{ contribution }}</dd>
+      {% if tools | length %}<dt>Tools & processes</dt><dd>{{ tools | join(', ') }}</dd>{% endif %}
+      {% if collaborators %}<dt>Collaborators</dt><dd>{{ collaborators }}</dd>{% endif %}</dl>
+      {% if links | length %}<div class="resource-links"><h2>Files & links</h2>{% for link in links %}<a href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>{% endif %}
+    </aside>
+    <div class="prose">{{ content | safe }}</div>
+  </div>
+  {% if gallery | length %}
+  <section class="project-gallery" aria-label="Project photographs">
+    {% for photo in gallery %}<figure><a href="{{ photo.src }}"><img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy" decoding="async" width="1200" height="900"></a>{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}
+  </section>
+  {% endif %}
+  <div class="project-end"><a class="text-link" href="/#work">← Back to all work</a><a class="text-link" href="mailto:{{ site.email }}">Get in touch ↗</a></div>
+</article>

@@ -1,0 +1,19 @@
+{
+  "name": "ashton-gilmore-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Markdown-driven portfolio built with Eleventy.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "node -e \"require('node:fs').rmSync('_site', {recursive: true, force: true})\"",
+    "prebuild": "npm run clean",
+    "prestart": "npm run clean"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
