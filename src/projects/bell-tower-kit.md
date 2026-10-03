@@ -1,9 +1,9 @@
 ---
 slug: "bell-tower-kit"
-title: "Bell Tower kit & packaging"
-summary: "A flat-pack model made for Southern Utah University, with illustrated instructions and packaging built for a small production run."
+title: "Product Photography & Instruction Sets"
+summary: "Illustrated instructions and packaging built for a small production run of laser cut products."
 category: "Fabrication"
-contribution: "Laser production, assembly instructions, packaging, and product photography."
+contribution: "Assembly instructions, packaging, and product photography."
 cover: "/assets/web/DSC09099.webp"
 coverAlt: "Three assembled miniature bell tower models."
 featured: true
@@ -16,7 +16,7 @@ links: [{"label": "Assembly instructions (PDF)", "url": "/assets/BellTowerV2Inst
 
 ## Making a kit someone could build
 
-This was a custom job for Southern Utah University. Connor Cook designed the tower and its interlocking geometry in Fusion. I handled the cut-file preparation and laser production, then made the instructions, packaging, and product photos.
+This was a custom job for Southern Utah University. Connor Cook designed the tower and its interlocking geometry in Fusion. I created instructions, packaging, and managed product photography.
 
 The tower assembles without glue or tools. The instructions needed to make that process understandable to someone seeing the parts for the first time. I turned engineering drawings into a numbered assembly guide with part callouts.
 
