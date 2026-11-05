@@ -5,14 +5,18 @@
    To use a custom font, add its @font-face rule here and update the family below. */
 :root {
   color-scheme: light;
-  --color-background: #ffffff;
-  --color-surface: #f3f5f6;
-  --color-text: #172027;
-  --color-muted: #56616b;
-  --color-accent: #2056a5;
-  --color-accent-hover: #153e79;
-  --color-border: #d8dee3;
-  --color-focus: #2056a5;
+  /* Sage green, modelled on an Obsidian-style sidebar in light mode */
+  --color-background: #f6f8f3;
+  --color-panel: #edf2e8;     /* cards, filter chips */
+  --color-highlight: #dfe9d3; /* hover and selected states */
+  --color-selected: #cfe0bd;  /* active filter */
+  --color-surface: #e3eadb;   /* behind images */
+  --color-text: #1e291b;
+  --color-muted: #586554;
+  --color-accent: #3d6a2a;
+  --color-accent-hover: #2a4d1b;
+  --color-border: #d3ddc9;
+  --color-focus: #4f8a35;
   --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-label: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -42,7 +46,10 @@
   --space-8: 6rem;
   --section-space: clamp(3.5rem, 7vw, 6rem);
   --border-width: 1px;
-  --image-radius: 3px;
+  --radius-sm: 8px;   /* chips, nav items */
+  --radius-md: 12px;  /* images */
+  --radius-lg: 16px;  /* cards */
+  --image-radius: var(--radius-md);
   --image-ratio: 4 / 3;
   --image-fit: cover;
   --focus-width: 3px;

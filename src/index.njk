@@ -2,37 +2,27 @@
 layout: base.njk
 ---
 <section class="intro" aria-labelledby="intro-title">
-  <p class="eyebrow">CAD / Fabrication / Technical documentation</p>
   <h1 id="intro-title">{{ site.intro }}</h1>
   <div class="intro-bottom"><p>{{ site.about }}</p><a class="text-link" href="{{ site.resume }}">View my résumé <span aria-hidden="true">↗</span></a></div>
 </section>
 <section id="work" class="work" aria-labelledby="work-title">
-  <div class="work-stage">
-    <div class="section-heading"><h2 id="work-title">Work</h2><span class="muted" id="work-pos">{{ collections.work | length }} projects</span></div>
-    <div class="filters" role="group" aria-label="Filter projects" hidden>
-      <button type="button" data-filter="all" aria-pressed="true">All</button>
-      {% for category in collections.categories %}<button type="button" data-filter="{{ category }}" aria-pressed="false">{{ category }}</button>{% endfor %}
-    </div>
-    <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
-    <div class="work-window">
-      <ol class="work-list">
-        {% for project in collections.work %}
-        <li class="work-item" data-category="{{ project.data.category }}">
-          <a href="{{ project.url }}">
-            <span class="wi-head"><span class="wi-num" aria-hidden="true">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span><span class="wi-title">{{ project.data.title }}</span></span>
-            <span class="wi-reveal" aria-hidden="true"><span class="wi-inner">
-              <span class="wi-image{% if project.data.imageFit == 'contain' %} contain{% endif %}"><img src="{{ project.data.cover }}" alt="" width="1200" height="900" {% if loop.index > 3 %}loading="lazy" {% endif %}decoding="async"></span>
-              <span class="wi-copy">
-                <span class="eyebrow">{{ project.data.category }}</span>
-                <span class="wi-summary">{{ project.data.summary }}</span>
-                <span class="text-link">View project <span aria-hidden="true">↗</span></span>
-              </span>
-            </span></span>
-          </a>
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
+  <div class="section-heading"><h2 id="work-title">Work</h2><span class="muted">{{ collections.work | length }} projects</span></div>
+  <div class="filters" role="group" aria-label="Filter projects" hidden>
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    {% for category in collections.categories %}<button type="button" data-filter="{{ category }}" aria-pressed="false">{{ category }}</button>{% endfor %}
   </div>
+  <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+  <ul class="project-grid">
+    {% for project in collections.work %}
+    <li class="project-card" data-category="{{ project.data.category }}">
+      <a href="{{ project.url }}">
+        <span class="card-image{% if project.data.imageFit == 'contain' %} contain{% endif %}"><img src="{{ project.data.cover }}" alt="" width="1200" height="900" {% if loop.index > 6 %}loading="lazy" {% endif %}decoding="async"></span>
+        <span class="eyebrow">{{ project.data.category }}</span>
+        <h3>{{ project.data.title }}</h3>
+        <p>{{ project.data.summary }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </section>
-<script src="/scripts/work-scroller.js" defer></script>
+<script src="/scripts/filters.js" defer></script>
